@@ -71,10 +71,27 @@ void main(List<String> arguments) {
   ///
   ///- Assigning Late Variables to Non Late Variables
   ///
+  print(" late full name is initialized");
 
+  late final fullname = getFullName();
+  print("after");
+  print(fullname);
 
+  //   Avoiding Constructor Initialization of Late Variables
 
+  final jhonDoe = Human(name: "jhon Doe");
+  final jhonDoe1 = Human(name: "jhon Doe1");
 
+  final jhoneDoeFamily =
+      WrongImplementationOfFamily(members: [jhonDoe, jhonDoe1]);
+
+  print(jhoneDoeFamily);
+  print(jhoneDoeFamily.membersCount);
+
+  final DoeFamily = RightImplementationOfFamily(members: [jhonDoe, jhonDoe1]);
+
+  print(DoeFamily);
+  print(DoeFamily.membersCount);
 }
 
 // Lazy Initialization to a Function Result
@@ -118,4 +135,43 @@ class Names {
   late final firstName;
   late final lastName;
   late final fullName = "$firstName $lastName";
+}
+
+String getFullName() {
+  print("get full name call ");
+  return "testing late";
+}
+
+class WrongImplementationOfFamily {
+  // late variables should not initialized in constructor
+
+  final Iterable<Human> members;
+  late int membersCount;
+
+  WrongImplementationOfFamily({required this.members}) {
+    membersCount = getMembersCount();
+  }
+  int getMembersCount() {
+    print("getting members count");
+    return members.length;
+  }
+}
+
+class RightImplementationOfFamily {
+  // late variables should not initialized in constructor
+
+  final Iterable<Human> members;
+  late int membersCount = getMembersCount();
+
+  RightImplementationOfFamily({required this.members});
+  int getMembersCount() {
+    print("getting members count");
+    return members.length;
+  }
+}
+
+class Human {
+  final String name;
+
+  Human({required this.name});
 }
