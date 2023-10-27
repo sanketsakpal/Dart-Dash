@@ -13,8 +13,8 @@ void main(List<String> args) {
   final age3 = age2;
   print(age3);
 
-  final age4 = 10;
- 
+  final age4 = 15;
+
   print(age4);
 
   // dart inferring data type automatically

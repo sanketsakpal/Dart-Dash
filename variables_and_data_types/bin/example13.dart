@@ -1,7 +1,7 @@
 void main(List<String> args) {
   // Specifying Data Types
 
-  const String yourName = "testing ";
+  const String yourName = "testing";
   // final  hisName = yourName; // here we get warning from lint rule
   final String hisName = yourName;
   // in this example for first variable yourName we are assign data type but for second variable we does not assign

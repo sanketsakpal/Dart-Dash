@@ -4,7 +4,7 @@ void main(List<String> args) {
   const name = 'foo';
   print("-- const ex : - $name--");
 
-// any modification to constant variables not allowed.
+  // any modification to constant variables not allowed.
 
   // invalid code
   // name = 'bar';
