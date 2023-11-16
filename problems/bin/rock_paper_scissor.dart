@@ -20,7 +20,7 @@ void main() {
   List<String> options = ["rock", "paper", "scissors"];
 
   // Actual game
-  
+
   while (true) {
     String compChoice = options[random.nextInt(options.length)];
     stdout.write("\nPlease choose Rock, Paper or Scissors: ");
@@ -47,6 +47,7 @@ void main() {
       // rules[rock] == paper // computer won
       print("You win: $userChoice vs $compChoice");
       user += 1;
+      print("$user");
       continue;
     }
   }

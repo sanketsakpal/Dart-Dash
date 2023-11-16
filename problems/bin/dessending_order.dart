@@ -1,13 +1,23 @@
 void main(List<String> args) {
-  // print(sortedarray);
+  print(sortedArray);
   print("------------------------");
-  bubbleSort2(array);
+  bubbleSort2(array1);
+  print("------------------------");
 }
 
 List<int> array = [5, 0, 1, 4, 2, 8];
-int smallest = array[0];
-List test = [];
-// List<int> sortedarray = bubbleSort(array);
+List<int> array1 = [5, 0, 1, 4, 2, 8];
+int smallest = array1[0];
+
+bubbleSort2(List<int> array) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > smallest) {
+      print(array[i]);
+    }
+  }
+}
+
+List<int> sortedArray = bubbleSort(array);
 
 bubbleSort(List<int> array) {
   int lengthOfArray = array.length;
@@ -22,13 +32,4 @@ bubbleSort(List<int> array) {
     }
   }
   return (array);
-}
-
-bubbleSort2(List<int> array) {
-  for (var i = 0; i < array.length; i++) {
-    if (array[i] > smallest) {
-      print(array[i]);
-    }
-  }
-  return (test);
 }
